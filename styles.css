@@ -1,0 +1,321 @@
+:root {
+    --bg-color: rgb(228, 220, 207);
+    --bg2-color: rgb(234, 84, 85);
+    --bg3-color: rgb(249, 245, 235);
+    --text-color: rgb(0, 43, 91);
+    --border-color: rgb(0, 43, 91);
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/*mobile*/
+
+/*I didn't like writing this part, but the width refused to increase from 50% to 100% */
+@media only screen and (min-width: 600px){
+    .nav{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .switches button{
+        display: none;
+    }
+    .hero {
+        display: none;
+    }
+    *{
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .header{
+        font-size: 24pt;
+        margin-top: -20px;
+        text-align: center;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column-reverse;
+    }
+    .nav{
+        width: 100%;
+        align-items: center;
+    }
+    .title{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .body {
+        padding-left: 20px;
+    }
+    /*Color Changing buttons*/
+    .title .colorChange1 {
+        border: 8px solid rgb(57, 62, 70);
+        border-radius: 30px;
+        background-color: rgb(57, 62, 70);
+    }
+    .title .colorChange2 {
+        border: 8px solid rgb(234, 84, 85);
+        border-radius: 30px;
+        background-color: rgb(234, 84, 85);
+    }
+    .title .colorChange3 {
+        border: 8px solid rgb(255, 191, 155);
+        border-radius: 30px;
+        background-color: rgb(255, 191, 155);
+    }
+    .title .colorChange4 {
+        border: 8px solid rgb(169, 144, 126);
+        border-radius: 30px;
+        background-color: rgb(169, 144, 126);
+    }
+}
+
+/*Tablet*/
+@media only screen and (max-width: 1400px){
+    .header{
+        font-size: 24pt;
+        min-height: 230px;
+        text-align: center;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column-reverse;
+    }
+    .hero {
+        display: none;
+    }
+    .nav{
+        width: 100%;
+        height: 100%;
+        align-items: center;
+    }
+    .title{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .switches button {
+        font-size: 24pt;
+    }
+    /*Color Changing buttons*/
+    .title .colorChange1 {
+        border: 8px solid rgb(57, 62, 70);
+        border-radius: 30px;
+        background-color: rgb(57, 62, 70);
+    }
+    .title .colorChange2 {
+        border: 8px solid rgb(234, 84, 85);
+        border-radius: 30px;
+        background-color: rgb(234, 84, 85);
+    }
+    .title .colorChange3 {
+        border: 8px solid rgb(255, 191, 155);
+        border-radius: 30px;
+        background-color: rgb(255, 191, 155);
+    }
+    .title .colorChange4 {
+        border: 8px solid rgb(169, 144, 126);
+        border-radius: 30px;
+        background-color: rgb(169, 144, 126);
+    }
+}
+
+html {
+    background-color: var(--bg-color);
+}
+/*main flex container*/
+.flex-container {
+    display: flex;
+    flex-direction: column;
+}
+/*header that will display on all webpages*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--bg2-color);
+    height: 70px;
+    box-shadow: 0px 5px 10px 0 var(--border-color);
+}
+.header h1:hover {
+    transition: ease all 500ms;
+    transform: rotate(180deg);
+    cursor: default;
+}
+.switches {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+.title {
+    display: flex;
+    font-size: 24pt;
+    color: var(--text-color);
+    padding-left: 10px;
+    align-self: center;
+}
+table, td {
+    border: 5px solid var(--border-color);
+    border-collapse: collapse;
+    text-align: left;
+    transition: ease all 200ms;
+    font-size: 34pt;
+}
+
+td:hover {
+    color: var(--bg2-color);
+    transform:scale(1, 1.1)
+}
+/*art gallery display*/
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 50px;
+    justify-content: center;
+    min-width: 1000px;
+}
+.art {
+    display: grid;
+    border: 5px solid var(--border-color);
+    border-radius: 10px;
+    max-width: 500px;
+}
+.art h1 {
+    text-align: center;
+}
+/*contact me styles*/
+textarea {
+    background-color: var(--bg3-color);
+    color: var(--text-color);
+    border: 5px solid var(--border-color);
+    margin-top: 10px;
+    border-radius: 10px;
+}
+/*Tablet*/
+@media only screen and (max-width: 1400px){
+    .grid-container {
+        grid-template-columns: 100%;
+    }
+    .art {
+        max-width: none;
+        grid-template-areas: 
+        "b b a" 
+        "b b c" 
+        "b b c";
+        width: 80%;
+    }
+    .art h1{grid-area: a;}
+    .art img{grid-area: b;}
+    .art p{grid-area: c;}
+
+}
+/*mobile*/
+@media only screen and (max-width: 600px){
+    .grid-container {
+        /*not a sweet clue as to why I had to add this.
+          without it, the .art elements appear on the left side of the screen*/
+        padding-left: 470px;
+    }
+    .art {
+        max-width: 500px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+/*Color Changing buttons*/
+.colorChange1:hover {
+    color: rgb(57, 62, 70);
+}
+.colorChange2:hover {
+    color: rgb(234, 84, 85);
+}
+.colorChange3:hover {
+    color: rgb(255, 191, 155);
+}
+.colorChange4:hover {
+    color: rgb(169, 144, 126);
+}
+.title button {
+    all: unset;
+}
+.title h1 {
+    cursor: pointer;
+}
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.nav a, button:not(.title button) {
+    color: var(--text-color);
+    background-color: var(--bg3-color);
+    padding: 3px 8px;
+    border: 3px solid var(--border-color);
+    border-radius: 100px;
+    box-shadow: 4px 4px 0 0 var(--border-color);
+    transition: ease all 100ms;
+    width: auto;
+}
+.nav a:hover, button:not(.title button):hover {
+    border: 4px solid var(--border-color);
+}
+.nav a:active, button:not(.title button):active {
+    transform: translateX(4px) translateY(4px);
+    box-shadow: none;
+}
+/*body*/
+.body {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    text-align: center;
+    padding-top: 10%;
+    font-size: 200%;
+    color: var(--text-color);
+    padding-top: 20px;
+}
+.body p {text-align: left;}
+.body h1 {
+    text-decoration: underline;
+    text-align: left;
+}
+.name{
+    display: flex;
+}
+.name h1 {
+    transition: ease all 200ms;
+}
+.name h1:hover {
+    transform: translateY(-10px) rotate(-20deg);
+    font-size: 210%;
+    color: var(--bg2-color);
+    cursor: default;
+}
+.body ol{
+    padding-top: 20px;
+    display: inline-block;
+    text-align: left;
+}
+.body li{transition: ease all 200ms;}
+.body li:hover{
+    padding: 10px 0px;
+    transform: skew(15deg);
+    color: var(--bg2-color);
+}
+/*remove underline on links*/
+a:link {
+    text-decoration: none;
+  }
+  
+a:visited {
+    text-decoration: none;
+  }
+  
+a:hover {
+    text-decoration: none;
+  }
+  
+a:active {
+    text-decoration: none;
+  }
